@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra Boda - Invitación</title>
+  <meta name="theme-color" content="#C6D7CF">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/slick.css"/>
+  <link rel="stylesheet" href="css/slick-theme.css"/>
+  <link rel='stylesheet' href='css/addEvent.css'/>
+  <link rel='stylesheet' href='css/bootstrap.min.css'/>
+  <link rel='stylesheet' href='css/style.css'/>
+  <link rel='stylesheet' href='css/responsive.css'/>
+  <link rel='stylesheet' href='css/jquery.fancybox.min.css'/>
+
+  <style>
+    /* Ajustes para que funcione sin servidor local */
+    .loader { margin: 0 auto; }
+    iframe { max-width: 100%; }
+  </style>
+</head>
+<body>
+
+  <div class="preloader-area">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <div id="modalMusica" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <p>Bienvenidos a la invitación de <br> <strong>Carla y Martin</strong></p>
+          <span>La música de fondo es parte de la experiencia</span>
+          <br>
+          <a class="boton" id="play-music-modal" href="#">Ingresar con música</a>
+          <a class="boton" data-dismiss="modal" aria-label="Close" href="#">Ingresar sin música</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="portada">
+    <div class="portada-flor-izq-sup"></div>
+    <div class="portada-flor-der-inf"></div>
+    <div class="portada-flor-izq-inf"></div>
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="content-portada text-center">
+          <div class="box-nombres-fecha-portada">
+            <span class="fecha">13.11.2026</span>
+            <h1>Carla <br class="d-md-none"> <span>&</span> <br class="d-md-none"> Martin</h1>
+            <div class="line"></div>
+          </div>
+          <div class="box-frase-portada">
+            <p>
+              <img src="img/comilla-apertura.svg" alt=""> <br>
+              Todos somos mortales, <br> hasta el primer beso y la segunda copa de vino <br>
+              <img src="img/comilla-cierre.svg" alt="">
+            </p>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="flecha-continuar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cuenta-regresiva">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="box-aros d-flex justify-content-center align-items-center">
+          <div class="box-circulo text-center">
+            <span class="falta">Falta</span>
+            <div id="reloj" class="reloj">
+              <div id="dias" class="reloj-col"><span class="number"></span><span class="time">días</span></div>
+              <div id="horas" class="reloj-col"><span class="number"></span><span class="time">hs</span></div>
+              <div id="minutos" class="reloj-col"><span class="number"></span><span class="time">min</span></div>
+              <div id="segundos" class="reloj-col no-border"><span class="number"></span><span class="time">seg</span></div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="corazon-falta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-principal bloque-grupo-invitados">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 col-md-10">
+            <div class="card-grupo-invitados">
+              <div class="card-content">
+                <div class="pases-total">2</div> <h3 class="titulo-grupo">INVITADOS</h3>
+                
+                <ul class="lista-invitados">
+                    <li class="invitado-item">Familia Pérez</li>
+                    <li class="invitado-item">Juan y María</li>
+                </ul>
+                
+                <p class="mensaje-grupo">Nos encanta compartir este momento con ustedes. ¡Los esperamos!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="ceremonia-fiesta">
+    <div class="ceremonia-fiesta-flor-der"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-iglesia text-center">
+          <div class="anim-iglesia"></div>
+          <br>
+          <h3>Iglesia</h3>
+          <div class="info-col">
+            <div class="info-box">
+              <h6>Día</h6>
+              <p>Viernes 13 de Noviembre - 11hs</p>
+              <a href="#" class="boton addeventatc">
+                <span class="nameBtn">Agendar</span>
+                <span class="start">2026-11-13 11:00:00</span>
+                <span class="end">2026-11-13 12:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Iglesia)</span>
+              </a>
+            </div>
+            <div class="info-box">
+              <h6>Lugar</h6>
+              <p>Parroquia San Antonio de Padua</p>
+            </div>
+            <div class="info-box">
+              <h6>Dirección</h6>
+              <p>Pje. Florida y Niña Yolanda <br>Lozano, Jujuy</p>
+              <a href="#" data-evento="Iglesia" class="boton modal-como-llegar">¿Cómo llegar?</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-ceremonia text-center">
+          <div class="anim-anillos"></div>
+          <br>
+          <h3>Ceremonia</h3>
+          <div class="info-col">
+            <div class="info-box">
+              <h6>Día</h6>
+              <p>Viernes 13 de Noviembre - 14hs</p>
+              <a href="#" class="boton addeventatc">
+                <span class="nameBtn">Agendar</span>
+                <span class="start">2026-11-13 14:00:00</span>
+                <span class="end">2026-11-13 15:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Ceremonia)</span>
+              </a>
+            </div>
+            <div class="info-box">
+              <h6>Lugar</h6>
+              <p>Salón de Eventos</p>
+            </div>
+            <div class="info-box">
+              <h6>Dirección</h6>
+              <p>Alvarez Prado 178 <br>Lozano, Jujuy</p>
+              <a href="#" data-evento="Ceremonia" class="boton modal-como-llegar">¿Cómo llegar?</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-fiesta text-center">
+          <div class="anim-fiesta"></div>
+          <br>
+          <h3>Fiesta</h3>
+          <div class="info-col">
+            <div class="info-box">
+              <h6>Día</h6>
+              <p>Viernes 13 de Noviembre - 18hs</p>
+              <a href="#" class="boton addeventatc">
+                <span class="nameBtn">Agendar</span>
+                <span class="start">2026-11-13 18:00:00</span>
+                <span class="end">2026-11-13 23:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Fiesta)</span>
+              </a>
+            </div>
+            <div class="info-box">
+              <h6>Lugar</h6>
+              <p>Salón de Eventos</p>
+            </div>
+            <div class="info-box">
+              <h6>Dirección</h6>
+              <p>Alvarez Prado 178 <br>Lozano, Jujuy</p>
+              <a href="#" data-evento="Fiesta" class="boton modal-como-llegar">¿Cómo llegar?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria">
+    <div class="container">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <div class="content-galeria">
+          <h2 class="title">Retratos de Nuestro Amor</h2>
+          <div class="anim-galeria"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-fotos">
+      <div class="carrusel">
+        <div><div class="polaroid"><a href="img/galeria/1.jpg" data-fancybox="galeria"><img src="img/galeria/1.jpg" alt=""></a></div></div>
+        <div><div class="polaroid"><a href="img/galeria/2.jpg" data-fancybox="galeria"><img src="img/galeria/2.jpg" alt=""></a></div></div>
+        <div><div class="polaroid"><a href="img/galeria/4.jpg" data-fancybox="galeria"><img src="img/galeria/4.jpg" alt=""></a></div></div>
+        <div><div class="polaroid"><a href="img/galeria/5.jpg" data-fancybox="galeria"><img src="img/galeria/5.jpg" alt=""></a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fiesta">
+    <div class="fiesta-flor-izq"></div>
+    <div class="container">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <div class="col-md-12">
+          <h2 class="title">Fiesta</h2>
+          <p class="subtitle">Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en cuenta.</p>
+        </div>
+        
+        
+
+        <div class="col-md-4 item-fiesta">
+          <div class="w-100 content-item-fiesta d-flex flex-column justify-content-between align-items-center">
+            <h3>Dress Code</h3>
+            <div class="anim-vestuario"></div>
+            <p>Una orientación para tu vestuario</p>
+            <a href="#" class="boton modal-vestuario">Ver Más</a>
+          </div>
+        </div>
+
+        <div class="col-md-4 item-fiesta">
+          <div class="w-100 content-item-fiesta d-flex flex-column justify-content-between align-items-center">
+            <h3>Tips y Notas</h3>
+            <div class="anim-tips"></div>
+            <p>Información adicional para tener en cuenta</p>
+            <a href="#" class="boton modal-tips">+ Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="regalos">
+    <div class="regalos-flor-der"></div>
+    <div class="container">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <h2 class="title">Regalos</h2>
+        <p class="subtitle">Si deseas regalarnos algo más que tu hermosa presencia...</p>
+        <div class="w-100">
+          <div class="anim-regalos"></div>
+        </div>
+        <br>
+        <a href="#" class="boton modal-regalos">Ver más</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="instagram">
+    <div class="container">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <h2 class="title">Compartimos este día junto a vos</h2>
+        <p class="subtitle">Compartí tus fotos y videos de ese hermoso día</p>
+        <div class="w-100">
+          <div class="anim-instagram"></div>
+        </div>
+        <div class="w-100">
+          <a target="_blank" href="https://www.instagram.com/explore/tags/carlaymartinboda/" class="hashtag">#carlaymartinboda</a>
+        </div>
+        <br>
+        <a target="_blank" href="https://www.instagram.com/explore/tags/carlaymartinboda/" class="boton">Ver en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-nombres-footer d-flex justify-content-end align-items-center">
+          <h4>Carla <span>&</span> Martin</h4>
+        </div>
+        <div class="col-md-6 col-acciones-footer d-flex justify-content-center justify-content-md-start align-items-center">
+          <ul>
+            <li>
+              <div title="" class="addeventatc">
+                <span class="nameBtn">Agendar Iglesia</span>
+                <span class="start">2026-11-13 11:00:00</span>
+                <span class="end">2026-11-13 12:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Iglesia)</span>
+              </div>
+            </li>
+            <li>
+              <div title="" class="addeventatc">
+                <span class="nameBtn">Agendar Ceremonia</span>
+                <span class="start">2026-11-13 14:00:00</span>
+                <span class="end">2026-11-13 15:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Ceremonia)</span>
+              </div>
+            </li>
+            <li>
+              <div title="" class="addeventatc">
+                <span class="nameBtn">Agendar Fiesta</span>
+                <span class="start">2026-11-13 18:00:00</span>
+                <span class="end">2026-11-13 23:00:00</span>
+                <span class="timezone">America/Argentina/Buenos_Aires</span>
+                <span class="title">Boda de Carla y Martin (Fiesta)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Regalos -->
+  <div id="modalRegalos" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="img-top-modal d-flex justify-content-center align-items-start">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="white-circle-icon">
+            <img src="img/img_circuloRegalo.svg" alt="">
+          </div>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Regalos</h5>
+        </div>
+        <div class="modal-body">
+          <p>Contenido modal regalos</p>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Vestuario -->
+  <div id="modalVestuario" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="img-top-modal d-flex justify-content-center align-items-start">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="white-circle-icon">
+            <img src="img/vestuario.svg" alt="">
+          </div>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Dress Code</h5>
+        </div>
+        <div class="modal-body">
+          <p>Contenido Dress Code</p>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tips -->
+  <div id="modalTips" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="img-top-modal d-flex justify-content-center align-items-start">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="white-circle-icon">
+            <img src="img/tips.svg" alt="">
+          </div>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Tips y Notas</h5>
+        </div>
+        <div class="modal-body">
+          <p>Contenido Tips y Notas</p>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Mapa -->
+  <div id="modalMapa" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="img-top-modal d-flex justify-content-center align-items-start">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+        </div>
+        <div class="modal-body">
+          <div id="mapLoader" class="map-loader">
+            <div class="map-spinner"></div>
+          </div>
+          <iframe id="googleMapIframe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a class="boton ampliar-mapa" target="_blank" href="#">Ampliar mapa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>¡Los esperamos!</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="controlador-musica">
+    <div id="play-pause-music" data-estado-music="pause" class="music-anim-icon"></div>
+  </div>
+  <div id="player-musica-fondo"></div>
+
+  <script>
+    var _pathApp = "";
+    var _pathProducto = "";
+    
+    // CONFIGURAR FECHA DE LA BODA AQUI (Mes/Dia/Año Hora:Minutos:Segundos)
+    var fechaCuentaRegresiva = "2026/11/13 11:00:00";
+  </script>
+
+  <script src="js/lottie_svg.min.js"></script>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/waypoint/noframework.waypoints.min.js"></script>
+  <script src="js/parallax.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+
+  <script>
+    // Storage para controlar estado de animaciones
+    const animationState = {};
+
+    // Loader y Animaciones Iniciales
+    $(window).on("load", function() {
+      $('.loader').fadeOut(500);
+      $('.preloader-area').delay(100).fadeOut(500);
+      $('#modalMusica').modal({ backdrop: 'static' });
+    });
+
+    // Cargar Animaciones Lottie - Versión Interactiva
+    function loadLottie(selector, path, autoplayOnLoad=false) {
+        const anim = bodymovin.loadAnimation({
+            wrapper: document.querySelector(selector),
+            animType: 'svg',
+            loop: false,
+            autoplay: autoplayOnLoad,
+            path: path
+        });
+
+        // Para el loader y música: reproducir infinito
+        if (autoplayOnLoad) {
+            anim.loop = true;
+            anim.play();
+        }
+
+        return anim;
+    }
+
+    // Cargar animaciones SIN autoplay (se reproducen al entrar en viewport)
+    let animFlores1 = loadLottie('.portada-flor-izq-sup', "img/json_hojas01.json", false);
+    let animFlores2 = loadLottie('.portada-flor-der-inf', "img/json_hojas02.json", false);
+    let animFlores3 = loadLottie('.portada-flor-izq-inf', "img/json_hojas03.json", false);
+    let animFlores4 = loadLottie('.ceremonia-fiesta-flor-der', "img/json_hojas04.json", false);
+    let animIglesia = loadLottie('.anim-iglesia', "img/img_iglesia.json", false);
+    let animAnillos = loadLottie('.anim-anillos', "img/img_anillos.json", false);
+    let animFiesta = loadLottie('.anim-fiesta', "img/img_fiesta.json", false);
+    let animGaleria = loadLottie('.anim-galeria', "img/json_camara.json", false);
+    let animVestuario = loadLottie('.anim-vestuario', "img/vestuario.json", false);
+    let animMusica = loadLottie('.anim-musica', "img/img_musica.json", false);
+    let animTips = loadLottie('.anim-tips', "img/tips.json", false);
+    let animFiestaFlor = loadLottie('.fiesta-flor-izq', "img/json_hojas03.json", false);
+    let animRegalos = loadLottie('.anim-regalos', "img/img_regalo.json", false);
+    let animRegalosFlor = loadLottie('.regalos-flor-der', "img/json_hojas04.json", false);
+    let animInstagram = loadLottie('.anim-instagram', "img/img_instagram.json", false);
+    let animCorazon = loadLottie('.corazon-falta', "img/corazon-falta.json", false);
+    let animFlecha = loadLottie('.flecha-continuar', "img/down-scroll.json", false);
+    animFlecha.setSpeed(0.6);
+
+    // Cargar animaciones CON autoplay (loader y música)
+    let animLoader = loadLottie('.loader', "img/corazon.json", true);
+    let animMusicIcon = loadLottie('.music-anim-icon', "img/music-player-icon.json", true);
+
+    // --- Sistema Intersection Observer para animaciones interactivas ---
+    const observerOptions = { threshold: 0.3 };
+
+    // Animaciones que se reproducen UNA vez y quedan estáticas (flores/hojas)
+    var staticAnims = [
+        '.portada-flor-izq-sup',
+        '.portada-flor-der-inf',
+        '.portada-flor-izq-inf',
+        '.ceremonia-fiesta-flor-der',
+        '.fiesta-flor-izq',
+        '.regalos-flor-der'
+    ];
+
+    const animationMap = {
+        '.portada-flor-izq-sup': animFlores1,
+        '.portada-flor-der-inf': animFlores2,
+        '.portada-flor-izq-inf': animFlores3,
+        '.ceremonia-fiesta-flor-der': animFlores4,
+        '.anim-iglesia': animIglesia,
+        '.anim-anillos': animAnillos,
+        '.anim-fiesta': animFiesta,
+        '.anim-galeria': animGaleria,
+        '.anim-vestuario': animVestuario,
+        '.anim-musica': animMusica,
+        '.anim-tips': animTips,
+        '.fiesta-flor-izq': animFiestaFlor,
+        '.anim-regalos': animRegalos,
+        '.regalos-flor-der': animRegalosFlor,
+        '.anim-instagram': animInstagram,
+        '.corazon-falta': animCorazon,
+        '.flecha-continuar': animFlecha
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            var anim = Array.from(Object.keys(animationMap)).find(function(key) {
+                return document.querySelector(key) === entry.target;
+            });
+
+            if (!anim) return;
+
+            var animation = animationMap[anim];
+            var isStatic = staticAnims.indexOf(anim) !== -1;
+
+            if (entry.isIntersecting) {
+                if (isStatic) {
+                    // Reproducir una sola vez, queda en último frame
+                    animation.loop = false;
+                    animation.goToAndStop(0, true);
+                    animation.play();
+                } else {
+                    // Loop continuo mientras esté visible
+                    animation.loop = true;
+                    animation.goToAndStop(0, true);
+                    animation.play();
+                }
+            } else {
+                if (isStatic) {
+                    // Resetear al frame 0 para que se reproduzca al volver
+                    animation.goToAndStop(0, true);
+                } else {
+                    animation.loop = false;
+                    animation.goToAndStop(0, true);
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los elementos de animación
+    Object.keys(animationMap).forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) observer.observe(element);
+    });
+
+    // Carrusel Galeria
+    $('.carrusel').slick({
+      lazyLoad: 'ondemand',
+      autoplay: true,
+      autoplaySpeed: 2000,
+      centerMode: true,
+      dots: true,
+      centerPadding: '20px',
+      slidesToShow: 3,
+      responsive: [
+        { breakpoint: 768, settings: { arrows: false, centerMode: true, centerPadding: '40px', slidesToShow: 1 } }
+      ]
+    });
+
+    // Parallax Portada
+    $('.portada').parallax({ imageSrc: _pathProducto + 'img/portada-3.jpg' });
+
+    // Parallax Instagram
+    $('.instagram').parallax({ imageSrc: _pathProducto + 'img/instagram.jpg' });
+
+    // --- LOGICA DE MUSICA (YouTube API) ---
+    var player;
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player-musica-fondo', {
+        height: '0', width: '0',
+        playerVars: { playlist: 'mi_oLU0fORc', loop: 1, start: 0 }, // ID del video de Youtube
+        events: { 'onReady': function(e) { e.target.setVolume(50); } }
+      });
+    }
+
+    // Boton Play en Modal
+    $('#play-music-modal').click(function(e) {
+      e.preventDefault();
+      $('#play-pause-music').attr('data-estado-music', 'play');
+      animMusicIcon.loop = true;
+      animMusicIcon.play();
+      player.playVideo();
+      $('#modalMusica').modal('hide');
+    });
+
+    // Boton Flotante Música
+    $('#play-pause-music').click(function() {
+      var estado = $(this).attr('data-estado-music');
+      if (estado == 'pause') {
+        $(this).attr('data-estado-music', 'play');
+        animMusicIcon.loop = true;
+        animMusicIcon.play();
+        player.playVideo();
+      } else {
+        $(this).attr('data-estado-music', 'pause');
+        animMusicIcon.pause();
+        player.pauseVideo();
+      }
+    });
+
+    // --- CUENTA REGRESIVA ---
+    var countDownDate = new Date(fechaCuentaRegresiva).getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      $("#dias .number").text(days);
+      $("#horas .number").text(hours);
+      $("#minutos .number").text(minutes);
+      $("#segundos .number").text(seconds);
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("reloj").innerHTML = '<p>¡Llegó el gran día!</p>';
+        $('.falta').text('');
+      }
+    }, 1000);
+
+    // --- MODAL CÓMO LLEGAR (Google Maps) ---
+    var coordenadas = {
+      'Iglesia':   { lat: -24.077503, lng: -65.408468, titulo: 'Parroquia San Antonio de Padua' },
+      'Ceremonia': { lat: -24.086843, lng: -65.403745, titulo: 'Ceremonia - Salón de Eventos' },
+      'Fiesta':    { lat: -24.086843, lng: -65.403745, titulo: 'Fiesta - Salón de Eventos' }
+    };
+
+    $('a.modal-como-llegar').on('click', function(e) {
+      e.preventDefault();
+      var evento = $(this).data('evento');
+      var datos = coordenadas[evento];
+      if (!datos) return;
+
+      var mapUrl = 'https://www.google.com/maps?q=' + datos.lat + ',' + datos.lng + '&output=embed';
+      var ampliarUrl = 'https://www.google.com/maps?q=' + datos.lat + ',' + datos.lng;
+
+      $('#modalMapa .modal-title').text(datos.titulo);
+      $('#googleMapIframe').attr('src', '');
+      $('#mapLoader').show();
+      $('#modalMapa .ampliar-mapa').attr('href', ampliarUrl);
+
+      $('#modalMapa').modal('show');
+
+      setTimeout(function() {
+        $('#googleMapIframe').attr('src', mapUrl);
+      }, 300);
+    });
+
+    $('#googleMapIframe').on('load', function() {
+      $('#mapLoader').fadeOut(300);
+    });
+
+    $('#modalMapa').on('hidden.bs.modal', function() {
+      $('#googleMapIframe').attr('src', '');
+    });
+
+    // --- MODAL VESTUARIO ---
+    $('body').on('click', 'a.modal-vestuario', function(e) {
+      e.preventDefault();
+      $('#modalVestuario').modal({ backdrop: 'static' });
+    });
+
+    // --- MODAL TIPS ---
+    $('body').on('click', 'a.modal-tips', function(e) {
+      e.preventDefault();
+      $('#modalTips').modal({ backdrop: 'static' });
+    });
+
+    // --- MODAL REGALOS ---
+    $('body').on('click', 'a.modal-regalos', function(e) {
+      e.preventDefault();
+      $('#modalRegalos').modal({ backdrop: 'static' });
+    });
+
+  </script>
+  <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+  <script type="text/javascript">
+    window.addeventasync = function() {
+      addeventatc.settings({
+        css: false, // Importante: false para que use tus estilos propios
+        appleical: { show: true, text: "Apple Calendar" },
+        google: { show: true, text: "Google <em>(online)</em>" },
+        office365: { show: true, text: "Office 365 <em>(online)</em>" },
+        outlook: { show: true, text: "Outlook" },
+        outlookcom: { show: true, text: "Outlook.com <em>(online)</em>" },
+        yahoo: { show: true, text: "Yahoo <em>(online)</em>" }
+      });
+    };
+  </script>
+</body>
+</html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuestra Boda - Invitación</title>
   <meta name="theme-color" content="#C6D7CF">
+  <link rel="icon" href="data:,">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +85,6 @@
               <div id="horas" class="reloj-col"><span class="number"></span><span class="time">hs</span></div>
               <div id="minutos" class="reloj-col"><span class="number"></span><span class="time">min</span></div>
               <div id="segundos" class="reloj-col no-border"><span class="number"></span><span class="time">seg</span></div>
-              <div class="clearfix"></div>
             </div>
             <div class="d-flex justify-content-center align-items-center">
               <div class="corazon-falta"></div>
@@ -438,7 +438,15 @@
   <div id="controlador-musica">
     <div id="play-pause-music" data-estado-music="pause" class="music-anim-icon"></div>
   </div>
+  <!-- AUDIO LOCAL (activo) -->
+  <audio id="player-musica-fondo" loop preload="auto">
+    <source src="audio/heaven.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- YOUTUBE (comentado - para reactivar: descomentar este div, comentar el audio de arriba
+       y en el JS reemplazar la sección "LOGICA DE MUSICA" por la versión YouTube)
   <div id="player-musica-fondo"></div>
+  -->
 
   <script>
     var _pathApp = "";
@@ -469,8 +477,10 @@
 
     // Cargar Animaciones Lottie - Versión Interactiva
     function loadLottie(selector, path, autoplayOnLoad=false) {
+        const wrapper = document.querySelector(selector);
+        if (!wrapper) return { play(){}, pause(){}, stop(){}, loop: false, goToAndStop(){}, setSpeed(){}, destroy(){} };
         const anim = bodymovin.loadAnimation({
-            wrapper: document.querySelector(selector),
+            wrapper: wrapper,
             animType: 'svg',
             loop: false,
             autoplay: autoplayOnLoad,
@@ -599,12 +609,41 @@
     });
 
     // Parallax Portada
-    $('.portada').parallax({ imageSrc: _pathProducto + 'img/portada-3.jpg' });
+    $('.portada').parallax({ imageSrc: _pathProducto + 'img/galeria/portada.jpg' });
 
     // Parallax Instagram
-    $('.instagram').parallax({ imageSrc: _pathProducto + 'img/instagram.jpg' });
+    $('.instagram').parallax({ imageSrc: _pathProducto + 'img/galeria/instagram.jpg' });
 
-    // --- LOGICA DE MUSICA (YouTube API) ---
+    // --- LOGICA DE MUSICA (Audio local) ---
+    var player = document.getElementById('player-musica-fondo');
+    player.volume = 0.5;
+
+    // Boton Play en Modal
+    $('#play-music-modal').click(function(e) {
+      e.preventDefault();
+      $('#play-pause-music').attr('data-estado-music', 'play');
+      animMusicIcon.loop = true;
+      animMusicIcon.play();
+      player.play();
+      $('#modalMusica').modal('hide');
+    });
+
+    // Boton Flotante Música
+    $('#play-pause-music').click(function() {
+      var estado = $(this).attr('data-estado-music');
+      if (estado == 'pause') {
+        $(this).attr('data-estado-music', 'play');
+        animMusicIcon.loop = true;
+        animMusicIcon.play();
+        player.play();
+      } else {
+        $(this).attr('data-estado-music', 'pause');
+        animMusicIcon.pause();
+        player.pause();
+      }
+    });
+
+    /* --- LOGICA DE MUSICA (YouTube - comentado) ---
     var player;
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
@@ -614,12 +653,11 @@
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player-musica-fondo', {
         height: '0', width: '0',
-        playerVars: { playlist: 'mi_oLU0fORc', loop: 1, start: 0 }, // ID del video de Youtube
+        playerVars: { playlist: 'SrZz_Ahk2sY', loop: 1, start: 0 }, // ID del video de Youtube
         events: { 'onReady': function(e) { e.target.setVolume(50); } }
       });
     }
 
-    // Boton Play en Modal
     $('#play-music-modal').click(function(e) {
       e.preventDefault();
       $('#play-pause-music').attr('data-estado-music', 'play');
@@ -629,7 +667,6 @@
       $('#modalMusica').modal('hide');
     });
 
-    // Boton Flotante Música
     $('#play-pause-music').click(function() {
       var estado = $(this).attr('data-estado-music');
       if (estado == 'pause') {
@@ -643,6 +680,7 @@
         player.pauseVideo();
       }
     });
+    --- fin YouTube --- */
 
     // --- CUENTA REGRESIVA ---
     var countDownDate = new Date(fechaCuentaRegresiva).getTime();

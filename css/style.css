@@ -463,20 +463,22 @@ section.cuenta-regresiva .box-aros .box-circulo span.falta{
 }
 
 section.cuenta-regresiva .box-aros .box-circulo .corazon-falta{
-  width: 18%;
-  margin-top: 5px;
+  width: 25%;
+  margin-top: 10px;
 }
 
 section.cuenta-regresiva .reloj{
   margin-top: 10px;
   margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 section.cuenta-regresiva .reloj-col{
-  width: 25%;
+  flex: 1;
   border-right: 1px solid #ccc;
   padding: 0 8px;
-  float: left;
 }
 
 section.cuenta-regresiva .reloj-col.no-border{
@@ -677,20 +679,26 @@ section.galeria .content-fotos{
 }
 
 section.galeria .content-fotos img{
-  width: 100%;
+  display: block;
 }
 
 
 section.galeria .content-fotos .polaroid a{
   outline: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
 }
 
 
 section.galeria .content-fotos .polaroid{
   background-color: #eee;
-  padding: 15px;
-  padding-bottom: 100px;
+  padding: 14px 14px 64px;
   margin: 5px;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
   -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.40);
   -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.432);
   box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.40);
@@ -707,6 +715,13 @@ section.galeria .slick-slide:focus{
 
 section.galeria .slick-center .polaroid{
   background-color: #fff !important;
+}
+
+section.galeria .content-fotos .polaroid a img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content-fotos .shadow-left{
@@ -841,7 +856,7 @@ section.fiesta .item-fiesta .hojas-musica{
 
 
 section.regalos{
-  background: url('../img/img_texturaFondo.jpg') left top repeat var(--color-4);
+  background: var(--color-4);
   padding-top: 14%;
   position: relative;
   padding-bottom: 10%
@@ -937,7 +952,7 @@ section.instagram:after{
 
 section.footer{
   position: relative;
-  background: url('../img/img_texturaFondo.jpg') left top repeat var(--color-4);
+  background: var(--color-4);
   padding-bottom: 10%;
   padding-top: 10%;
   margin-top: -2px;

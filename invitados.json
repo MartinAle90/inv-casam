@@ -1,0 +1,23 @@
+{
+  "familia_garcia": {
+    "nombres": ["Juan García", "Sofía García", "Mateo García"],
+    "pases": 3,
+    "grupo": "A"
+  },
+  "amigos_facu": {
+    "nombres": ["Facundo", "Martina"],
+    "pases": 2,
+    "grupo": "B"
+  },
+  "test": {
+    "nombres": ["Martin test"],
+    "pases": 1,
+    "grupo": "A"
+  },
+  "familia_gimenez": {
+    "nombres": ["Claudia Giménez", "Ariel Sosa"],
+    "pases": 2,
+    "grupo": "B"
+  }
+}
+

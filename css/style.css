@@ -1562,6 +1562,91 @@ footer p a:hover{
 }
 
 
+/* Modal Tarjeta */
+
+
+#modalTarjeta .modal-content{
+  text-align: center;
+  border: none;
+  background: #fff;
+  padding-bottom: 20px;
+}
+
+
+#modalTarjeta .modal-header{
+  border: none;
+  display: inline-block;
+  padding: 0;
+}
+
+
+#modalTarjeta .modal-header .modal-title{
+  font-size: 25px;
+}
+
+#modalTarjeta .modal-footer{
+  border: none;
+  display: inline-block;
+  padding: 0;
+}
+
+
+#modalTarjeta .boton{
+  outline: none;
+  border: none;
+}
+
+#modalTarjeta .img-top-modal{
+  position: relative;
+  height:90px;
+}
+
+#modalTarjeta .img-top-modal img{
+  width: 65%;
+  margin-top: 0;
+}
+
+#modalTarjeta .close{
+  position: absolute;
+  top: -15px;
+  right: 0;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height:40px;
+  background-color: var(--color-2);
+  opacity: 1;
+  outline: none;
+  font-size: 34px;
+  font-weight: normal;
+  font-family: var(--fuente-2);
+  font-weight:300;
+  
+
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.50);
+  box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.50);
+  
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+#modalTarjeta .close:hover{
+  background-color: white;
+  color: var(--color-2);
+}
+
+
+#modalTarjeta .close span{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* ---------- */
 
 

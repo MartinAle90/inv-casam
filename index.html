@@ -101,14 +101,17 @@
           <div class="col-12 col-md-10">
             <div class="card-grupo-invitados">
               <div class="card-content">
-                <div class="pases-total">2</div> <h3 class="titulo-grupo">INVITADOS</h3>
+                <div class="pases-total" id="pasesDinamicos">-</div> <h3 class="titulo-grupo">INVITADOS</h3>
                 
-                <ul class="lista-invitados">
-                    <li class="invitado-item">Familia Pérez</li>
-                    <li class="invitado-item">Juan y María</li>
+                <ul class="lista-invitados" id="listaDinamica">
+                  <li class="invitado-loader">
+                    <div class="spinner-border text-secondary" role="status">
+                      <span class="sr-only">Cargando...</span>
+                    </div>
+                  </li>
                 </ul>
                 
-                <p class="mensaje-grupo">Nos encanta compartir este momento con ustedes. ¡Los esperamos!</p>
+                <p class="mensaje-grupo" id="mensajeGrupoInvitados">Nos encanta compartir este momento con ustedes. ¡Los esperamos!</p>
               </div>
             </div>
           </div>
@@ -119,8 +122,8 @@
   <section class="ceremonia-fiesta">
     <div class="ceremonia-fiesta-flor-der"></div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-iglesia text-center">
+      <div class="row" id="contenedor-eventos">
+        <div class="col-md-4 col-iglesia text-center" id="col-iglesia">
           <div class="anim-iglesia"></div>
           <br>
           <h3>Iglesia</h3>
@@ -148,7 +151,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-ceremonia text-center">
+        <div class="col-md-4 col-ceremonia text-center" id="col-ceremonia">
           <div class="anim-anillos"></div>
           <br>
           <h3>Ceremonia</h3>
@@ -176,7 +179,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-fiesta text-center">
+        <div class="col-md-4 col-fiesta text-center" id="col-fiesta">
           <div class="anim-fiesta"></div>
           <br>
           <h3>Fiesta</h3>
@@ -203,6 +206,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -254,6 +258,15 @@
             <a href="#" class="boton modal-tips">+ Info</a>
           </div>
         </div>
+
+        <div class="col-md-4 item-fiesta" id="item-tarjeta" style="display: none;">
+          <div class="w-100 content-item-fiesta d-flex flex-column justify-content-between align-items-center">
+            <h3>Valor tarjeta</h3>
+            <div class="anim-regalos"></div>
+            <p>Información sobre el costo y el CBU</p>
+            <a href="#" class="boton modal-tarjeta">Ver Más</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -263,12 +276,11 @@
     <div class="container">
       <div class="row text-center d-flex justify-content-center align-items-center">
         <h2 class="title">Regalos</h2>
-        <p class="subtitle">Si deseas regalarnos algo más que tu hermosa presencia...</p>
+        <p class="subtitle">Tu presencia es nuestro mejor regalo. No es necesario ningún obsequio; solo vení con ganas de festejar.</p>
         <div class="w-100">
           <div class="anim-regalos"></div>
         </div>
         <br>
-        <a href="#" class="boton modal-regalos">Ver más</a>
       </div>
     </div>
   </section>
@@ -394,6 +406,31 @@
         </div>
         <div class="modal-body">
           <p>Contenido Tips y Notas</p>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tarjeta -->
+  <div id="modalTarjeta" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="img-top-modal d-flex justify-content-center align-items-start">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="white-circle-icon">
+            <img src="img/img_circuloRegalo.svg" alt="">
+          </div>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Valor de la tarjeta</h5>
+        </div>
+        <div class="modal-body">
+          <p><strong>$20.000 ARS</strong> por persona.</p>
+          <p>CBU / Alias: <strong>martinale90mp</strong></p>
+          <p><small>Límite de confirmación y pago: <strong>30 de Septiembre de 2026</strong></small></p>
         </div>
         <div class="modal-footer"></div>
       </div>
@@ -608,6 +645,98 @@
       ]
     });
 
+    function renderInvitadosDesdeLista(data) {
+      var lista = document.getElementById('listaDinamica') || document.getElementById('lista-invitados');
+      var total = document.getElementById('pasesDinamicos') || document.getElementById('pases-total');
+      var mensaje = document.getElementById('mensajeGrupoInvitados');
+      var colIglesia = document.getElementById('col-iglesia');
+      var colCeremonia = document.getElementById('col-ceremonia');
+      var colFiesta = document.getElementById('col-fiesta');
+      var itemTarjeta = document.getElementById('item-tarjeta');
+      if (!lista) return;
+
+      var nombres = Array.isArray(data && data.nombres) ? data.nombres : [];
+      var pases = Number(data && data.pases);
+      var grupo = data && data.grupo === 'B' ? 'B' : 'A';
+      var esSingular = nombres.length === 1;
+
+      if (!nombres.length) {
+        lista.innerHTML = '<li class="invitado-item">Invitado especial</li>';
+        if (total) {
+          total.textContent = '1';
+        }
+        if (mensaje) {
+          mensaje.textContent = 'Nos encanta compartir este momento contigo. ¡Te esperamos!';
+        }
+        return;
+      }
+
+      lista.innerHTML = nombres.map(function(nombre) {
+        return '<li class="invitado-item">' + nombre + '</li>';
+      }).join('');
+
+      if (total) {
+        total.textContent = Number.isFinite(pases) && pases > 0 ? pases : nombres.length;
+      }
+
+      if (mensaje) {
+        mensaje.textContent = esSingular
+          ? 'Nos encanta compartir este momento contigo. ¡Te esperamos!'
+          : 'Nos encanta compartir este momento con ustedes. ¡Los esperamos!';
+      }
+
+      if (colIglesia && colCeremonia && colFiesta && itemTarjeta) {
+        if (grupo === 'B') {
+          colIglesia.style.display = 'none';
+          colCeremonia.style.display = 'none';
+          colFiesta.className = 'col-md-12 col-fiesta text-center';
+          itemTarjeta.style.display = 'block';
+        } else {
+          colIglesia.style.display = '';
+          colCeremonia.style.display = '';
+          colFiesta.className = 'col-md-4 col-fiesta text-center';
+          itemTarjeta.style.display = 'none';
+        }
+      }
+    }
+
+    function renderInvitadoFallback() {
+      renderInvitadosDesdeLista({ nombres: ['Invitado especial'], pases: 1 });
+    }
+
+    function renderInvitadosDesdeToken() {
+      var params = new URLSearchParams(window.location.search);
+      var token = params.get('token');
+      if (!token) {
+        renderInvitadoFallback();
+        return Promise.resolve(true);
+      }
+
+      return fetch('invitados.json', { cache: 'no-store' })
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('No se pudo leer invitados.json');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          var invitado = data && data[token];
+          if (!invitado) {
+            renderInvitadoFallback();
+            return false;
+          }
+
+          renderInvitadosDesdeLista(invitado);
+          return true;
+        })
+        .catch(function() {
+          renderInvitadoFallback();
+          return false;
+        });
+    }
+
+    renderInvitadosDesdeToken();
+
     // Parallax Portada
     $('.portada').parallax({ imageSrc: _pathProducto + 'img/galeria/portada.jpg' });
 
@@ -750,6 +879,12 @@
     $('body').on('click', 'a.modal-tips', function(e) {
       e.preventDefault();
       $('#modalTips').modal({ backdrop: 'static' });
+    });
+
+    // --- MODAL TARJETA ---
+    $('body').on('click', 'a.modal-tarjeta', function(e) {
+      e.preventDefault();
+      $('#modalTarjeta').modal({ backdrop: 'static' });
     });
 
     // --- MODAL REGALOS ---
